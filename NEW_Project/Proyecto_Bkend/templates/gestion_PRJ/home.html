@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Resumen - Gestión de Proyectos{% endblock %}
+
+{% block content %}
+<h1 class="title">Resumen general</h1>
+<div class="columns">
+    <div class="column">
+        <div class="box has-background-link-light">
+            <h2 class="subtitle">Proyectos</h2>
+            <p class="is-size-3 has-text-weight-bold">{{ proyectos_count }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-background-info-light">
+            <h2 class="subtitle">Empleados</h2>
+            <p class="is-size-3 has-text-weight-bold">{{ empleados_count }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-background-warning-light">
+            <h2 class="subtitle">Tareas abiertas</h2>
+            <p class="is-size-3 has-text-weight-bold">{{ tareas_abiertas }}</p>
+        </div>
+    </div>
+</div>
+<p>Utiliza el menú superior para navegar entre los CRUD disponibles.</p>
+{% endblock %}

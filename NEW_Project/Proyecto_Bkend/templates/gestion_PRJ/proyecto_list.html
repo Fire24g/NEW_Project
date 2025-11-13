@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<div class="level">
+    <div class="level-left">
+        <h1 class="title">Proyectos</h1>
+    </div>
+    <div class="level-right">
+        <a href="{% url 'gestion:proyecto_create' %}" class="button is-primary">Nuevo proyecto</a>
+    </div>
+</div>
+<table class="table is-fullwidth is-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Inicio</th>
+            <th>Término</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for proyecto in proyectos %}
+        <tr>
+            <td>{{ proyecto.nombre }}</td>
+            <td>{{ proyecto.cliente.nombre }}</td>
+            <td>{{ proyecto.get_estado_display }}</td>
+            <td>{{ proyecto.fecha_inicio }}</td>
+            <td>{{ proyecto.fecha_termino|default:'-' }}</td>
+            <td class="has-text-right">
+                <a href="{% url 'gestion:proyecto_update' proyecto.pk %}" class="button is-small">Editar</a>
+                <a href="{% url 'gestion:proyecto_delete' proyecto.pk %}" class="button is-small is-danger">Eliminar</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="6" class="has-text-centered">No hay proyectos registrados.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

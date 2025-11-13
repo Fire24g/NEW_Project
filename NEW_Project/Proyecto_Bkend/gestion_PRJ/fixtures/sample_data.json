@@ -1,0 +1,126 @@
+[
+  {
+    "model": "gestion_PRJ.cliente",
+    "pk": 1,
+    "fields": {
+      "nombre": "Banco Sur",
+      "correo": "contacto@bancosur.cl",
+      "telefono": "+56 2 1234 5678",
+      "empresa": "Banco Sur"
+    }
+  },
+  {
+    "model": "gestion_PRJ.cliente",
+    "pk": 2,
+    "fields": {
+      "nombre": "Constructora Andes",
+      "correo": "contacto@andes.cl",
+      "telefono": "+56 41 987 6543",
+      "empresa": "Constructora Andes"
+    }
+  },
+  {
+    "model": "gestion_PRJ.empleado",
+    "pk": 1,
+    "fields": {
+      "nombres": "María",
+      "apellidos": "Pérez",
+      "correo": "maria.perez@example.com",
+      "rol": "LIDER"
+    }
+  },
+  {
+    "model": "gestion_PRJ.empleado",
+    "pk": 2,
+    "fields": {
+      "nombres": "Juan",
+      "apellidos": "Rojas",
+      "correo": "juan.rojas@example.com",
+      "rol": "DESARROLLADOR"
+    }
+  },
+  {
+    "model": "gestion_PRJ.empleado",
+    "pk": 3,
+    "fields": {
+      "nombres": "Ana",
+      "apellidos": "González",
+      "correo": "ana.gonzalez@example.com",
+      "rol": "QA"
+    }
+  },
+  {
+    "model": "gestion_PRJ.proyecto",
+    "pk": 1,
+    "fields": {
+      "nombre": "Portal Clientes Banco Sur",
+      "descripcion": "Desarrollo del portal de autoatención para clientes del banco.",
+      "cliente": 1,
+      "fecha_inicio": "2025-09-01",
+      "fecha_termino": null,
+      "estado": "EN_PROGRESO"
+    }
+  },
+  {
+    "model": "gestion_PRJ.proyecto",
+    "pk": 2,
+    "fields": {
+      "nombre": "App logística Andes",
+      "descripcion": "Aplicación móvil para seguimiento de entregas.",
+      "cliente": 2,
+      "fecha_inicio": "2025-07-15",
+      "fecha_termino": "2025-10-30",
+      "estado": "FINALIZADO"
+    }
+  },
+  {
+    "model": "gestion_PRJ.equipo",
+    "pk": 1,
+    "fields": {
+      "nombre": "Team Portal",
+      "descripcion": "Equipo responsable del portal de clientes.",
+      "proyecto": 1,
+      "lider": 1,
+      "miembros": [1, 2, 3]
+    }
+  },
+  {
+    "model": "gestion_PRJ.tarea",
+    "pk": 1,
+    "fields": {
+      "proyecto": 1,
+      "asignado_a": 2,
+      "titulo": "Implementar autenticación",
+      "descripcion": "Crear flujo de login usando OAuth corporativo.",
+      "fecha_vencimiento": "2025-11-05",
+      "estado": "EN_PROGRESO",
+      "prioridad": "ALTA"
+    }
+  },
+  {
+    "model": "gestion_PRJ.tarea",
+    "pk": 2,
+    "fields": {
+      "proyecto": 1,
+      "asignado_a": 3,
+      "titulo": "Plan de pruebas",
+      "descripcion": "Diseñar casos de prueba para módulo de autenticación.",
+      "fecha_vencimiento": "2025-11-10",
+      "estado": "PENDIENTE",
+      "prioridad": "MEDIA"
+    }
+  },
+  {
+    "model": "gestion_PRJ.tarea",
+    "pk": 3,
+    "fields": {
+      "proyecto": 2,
+      "asignado_a": 1,
+      "titulo": "Retrospectiva final",
+      "descripcion": "Reunión de cierre para el proyecto logístico.",
+      "fecha_vencimiento": "2025-10-28",
+      "estado": "COMPLETADA",
+      "prioridad": "BAJA"
+    }
+  }
+]

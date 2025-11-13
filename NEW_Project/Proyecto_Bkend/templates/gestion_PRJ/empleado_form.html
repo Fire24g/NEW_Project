@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if object %}Editar{% else %}Nuevo{% endif %} empleado{% endblock %}
+
+{% block content %}
+<h1 class="title">{% if object %}Editar{% else %}Nuevo{% endif %} empleado</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="box">
+        {{ form.as_p }}
+    </div>
+    <div class="buttons">
+        <button type="submit" class="button is-primary">Guardar</button>
+        <a class="button" href="{% url 'gestion:empleado_list' %}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

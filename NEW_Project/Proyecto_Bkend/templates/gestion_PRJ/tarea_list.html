@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Tareas{% endblock %}
+
+{% block content %}
+<div class="level">
+    <div class="level-left">
+        <h1 class="title">Tareas</h1>
+    </div>
+    <div class="level-right">
+        <a href="{% url 'gestion:tarea_create' %}" class="button is-primary">Nueva tarea</a>
+    </div>
+</div>
+<table class="table is-fullwidth is-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Proyecto</th>
+            <th>Asignado a</th>
+            <th>Estado</th>
+            <th>Prioridad</th>
+            <th>Vencimiento</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.proyecto.nombre }}</td>
+            <td>{{ tarea.asignado_a|default:'Sin asignar' }}</td>
+            <td>{{ tarea.get_estado_display }}</td>
+            <td>{{ tarea.get_prioridad_display }}</td>
+            <td>{{ tarea.fecha_vencimiento|default:'-' }}</td>
+            <td class="has-text-right">
+                <a href="{% url 'gestion:tarea_update' tarea.pk %}" class="button is-small">Editar</a>
+                <a href="{% url 'gestion:tarea_delete' tarea.pk %}" class="button is-small is-danger">Eliminar</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="7" class="has-text-centered">No hay tareas registradas.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
